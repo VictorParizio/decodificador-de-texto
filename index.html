@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Decodificador de Texto</title>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <a href="#">
+          <img src="./img/Vector.svg" alt="Logo da Alura" />
+        </a>
+      </header>
+
+      <section class="main">
+        <label for="text" class="label-text">Digite seu texto</label>
+        <textarea
+          id="text"
+          class="text"
+          placeholder="Digite seu texto"
+        ></textarea>
+
+        <div>
+          <p>Apenas letras minúsculas e sem acento</p>
+          <div class="button-container">
+            <button id="encrypt-button">Criptografar</button>
+            <button id="decrypt-button">Descriptografar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="sidebar">
+        <img
+          src="./img/avatar.svg"
+          alt="Um rapaz usando uma lupa para investigar um diamante."
+        />
+
+        <h2>Nenhuma mensagem encontrada</h2>
+        <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -7,17 +7,11 @@ const encryptedText = () => {
   let encryptedText = [];
 
   for (letter of arrayLetters) {
-    if (letter === "a") {
-      letter = "ai";
-    } else if (letter === "e") {
-      letter = "enter";
-    } else if (letter === "i") {
-      letter = "imes";
-    } else if (letter === "o") {
-      letter = "ober";
-    } else if (letter === "u") {
-      letter = "ufat";
-    }
+    letter = (letter === "a") ? "ai" :
+             (letter === "e") ? "enter" :
+             (letter === "i") ? "imes" :
+             (letter === "o") ? "ober" :
+             (letter === "u") ? "ufat" : letter;
 
     encryptedText.push(letter);
   }
@@ -34,21 +28,11 @@ const decryptedText = () => {
   for (word of arrayWords) {
     for (keyWord of keyWords) {
       while (word.includes(keyWord)) {
-        if (word.includes("ai")) {
-          word = word.replace("ai", "a");
-        }
-        if (word.includes("enter")) {
-          word = word.replace("enter", "e");
-        }
-        if (word.includes("imes")) {
-          word = word.replace("imes", "i");
-        }
-        if (word.includes("ober")) {
-          word = word.replace("ober", "o");
-        }
-        if (word.includes("ufat")) {
-          word = word.replace("ufat", "u");
-        }
+        word = word.includes("ai") ? word.replace("ai", "a") :
+               word.includes("enter") ? word.replace("enter", "e") :
+               word.includes("imes") ? word.replace("imes", "i") :
+               word.includes("ober") ? word.replace("ober", "o") :
+               word.includes("ufat") ? word.replace("ufat", "u") : word;
       }
     }
 

@@ -97,7 +97,7 @@ button:hover {
 
 .container .main div p {
   font-size: 1.2rem;
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 
 .container .main div p::before {
@@ -148,6 +148,12 @@ button:hover {
 
 .container .sidebar p {
   color: #495057;
+}
+
+.copyBtn {
+  padding: 24px;
+  background-color: transparent;
+  margin-top: 32px;
 }
 
 @media (max-width: 768px) {

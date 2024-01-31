@@ -1,61 +1,69 @@
-const text = document.getElementById("text");
+const inputText = document.getElementById("input-text");
 const encryptBtn = document.getElementById("encrypt-button");
 const decryptBtn = document.getElementById("decrypt-button");
-const result = document.getElementById("sidebar");
+const resultContainer = document.getElementById("sidebar");
 
-const copyText = (decryptedText) => {
+const copyToClipboard = (textToCopy) => {
   const tempTextArea = document.createElement("textarea");
-  tempTextArea.value = decryptedText;
+  tempTextArea.value = textToCopy;
   document.body.appendChild(tempTextArea);
   tempTextArea.select();
   document.execCommand("copy");
   document.body.removeChild(tempTextArea);
 };
 
-const addResult = (resultText) => {
-  result.innerHTML = `<p>${resultText}</p>
-  <button 
-    class="copyBtn"
-    onclick="copyText('${resultText}')"
-  >
-    Copiar
-  </button>`;
+const displayResult = (resultText) => {
+  resultContainer.innerHTML = `
+    <p>${resultText}</p>
+    <button 
+      class="copyBtn"
+      onclick="copyToClipboard('${resultText}')"
+    >
+      Copiar
+    </button>
+  `;
+
+  resultContainer.classList.add('result-space-between');
 };
 
-const encryptedText = () => {
-  const arrayLetters = text.value.split("");
+const encryptText = () => {
+  const inputLetters = inputText.value.split("");
   let encryptedText = [];
 
-  for (let letter of arrayLetters) {
+  for (let letter of inputLetters) {
     letter =
-      letter === "a" ? "ai"
-        : letter === "e" ? "enter"
-        : letter === "i" ? "imes"
-        : letter === "o" ? "ober"
-        : letter === "u" ? "ufat" 
+      letter === "a"
+        ? "ai"
+        : letter === "e"
+        ? "enter"
+        : letter === "i"
+        ? "imes"
+        : letter === "o"
+        ? "ober"
+        : letter === "u"
+        ? "ufat"
         : letter;
 
     encryptedText.push(letter);
   }
 
   encryptedText = encryptedText.join("");
-  addResult(encryptedText);
+  displayResult(encryptedText);
 };
 
-const decryptedText = () => {
-  const arrayWords = text.value.split(" ");
+const decryptText = () => {
+  const inputWords = inputText.value.split(" ");
   const keyWords = ["ai", "enter", "imes", "ober", "ufat"];
   let decryptedText = [];
 
-  for (let word of arrayWords) {
+  for (let word of inputWords) {
     for (let keyWord of keyWords) {
       while (word.includes(keyWord)) {
-        word = word.includes("ai") ? word.replace("ai", "a")
-          : word.includes("enter") ? word.replace("enter", "e")
-          : word.includes("imes") ? word.replace("imes", "i")
-          : word.includes("ober") ? word.replace("ober", "o")
-          : word.includes("ufat") ? word.replace("ufat", "u") 
-          : word;
+        word = word.replace("ai", "a")
+                   .replace("enter", "e")
+                   .replace("imes", "i")
+                   .replace("ober", "o")
+                   .replace("ufat", "u");
       }
     }
 
@@ -63,8 +71,8 @@ const decryptedText = () => {
   }
 
   decryptedText = decryptedText.join(" ");
-  addResult(decryptedText);
+  displayResult(decryptedText);
 };
 
-encryptBtn.addEventListener("click", encryptedText);
-decryptBtn.addEventListener("click", decryptedText);
+encryptBtn.addEventListener("click", encryptText);
+decryptBtn.addEventListener("click", decryptText);

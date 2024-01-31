@@ -105,7 +105,7 @@ button:hover {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-image: url("img/exclamation.svg");
+  background-image: url("./images/exclamation.svg");
   background-size: cover;
   margin-right: 5px;
 }
@@ -151,6 +151,7 @@ button:hover {
 }
 
 .copyBtn {
+  flex: 0;
   padding: 24px;
   background-color: transparent;
   margin-top: 32px;

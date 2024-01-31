@@ -3,7 +3,7 @@ const encryptBtn = document.getElementById("encrypt-button");
 const decryptBtn = document.getElementById("decrypt-button");
 const result = document.getElementById("sidebar");
 
-const copyText = () => {
+const copyText = (decryptedText) => {
   const tempTextArea = document.createElement("textarea");
   tempTextArea.value = decryptedText;
   document.body.appendChild(tempTextArea);
@@ -12,11 +12,11 @@ const copyText = () => {
   document.body.removeChild(tempTextArea);
 };
 
-const addResult = (result) => {
-  result.innerHTML = `<p>${result}</p>
+const addResult = (resultText) => {
+  result.innerHTML = `<p>${resultText}</p>
   <button 
     class="copyBtn"
-    onclick="copyText()"
+    onclick="copyText('${resultText}')"
   >
     Copiar
   </button>`;
@@ -26,7 +26,7 @@ const encryptedText = () => {
   const arrayLetters = text.value.split("");
   let encryptedText = [];
 
-  for (letter of arrayLetters) {
+  for (let letter of arrayLetters) {
     letter =
       letter === "a" ? "ai"
         : letter === "e" ? "enter"
@@ -39,7 +39,7 @@ const encryptedText = () => {
   }
 
   encryptedText = encryptedText.join("");
-  addResult(encryptedText)
+  addResult(encryptedText);
 };
 
 const decryptedText = () => {
@@ -47,8 +47,8 @@ const decryptedText = () => {
   const keyWords = ["ai", "enter", "imes", "ober", "ufat"];
   let decryptedText = [];
 
-  for (word of arrayWords) {
-    for (keyWord of keyWords) {
+  for (let word of arrayWords) {
+    for (let keyWord of keyWords) {
       while (word.includes(keyWord)) {
         word = word.includes("ai") ? word.replace("ai", "a")
           : word.includes("enter") ? word.replace("enter", "e")
@@ -63,7 +63,7 @@ const decryptedText = () => {
   }
 
   decryptedText = decryptedText.join(" ");
-  addResult(decryptedText)
+  addResult(decryptedText);
 };
 
 encryptBtn.addEventListener("click", encryptedText);

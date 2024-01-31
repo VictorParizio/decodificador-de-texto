@@ -71,7 +71,7 @@ button:hover {
   justify-content: space-between;
 }
 
-.body-container .main-container .text-input-label {
+.body-container .main-container .textarea-label {
   color: transparent;
   height: 0;
 }

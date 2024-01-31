@@ -10,6 +10,8 @@ const copyToClipboard = (textToCopy) => {
   tempTextArea.select();
   document.execCommand("copy");
   document.body.removeChild(tempTextArea);
+  inputText.focus();
+  alert("Copiado com sucesso!");
 };
 
 const displayResult = (resultText) => {
@@ -23,17 +25,23 @@ const displayResult = (resultText) => {
     </button>
   `;
 
-  resultContainer.classList.add('result-space-between');
+  resultContainer.classList.add("space-between");
 };
 
 const encryptText = () => {
+  if (inputText.value.length === 0) {
+    alert("Digite seu texto");
+    inputText.focus();
+    return;
+  }
+
   const inputLetters = inputText.value.split("");
   let encryptedText = [];
 
   for (let letter of inputLetters) {
     letter =
       letter === "a"
-        ? "ai"
+        ? "ahi"
         : letter === "e"
         ? "enter"
         : letter === "i"
@@ -52,18 +60,24 @@ const encryptText = () => {
 };
 
 const decryptText = () => {
+  if (inputText.value.length === 0) {
+    alert("Digite seu texto");
+    inputText.focus();
+  }
+
   const inputWords = inputText.value.split(" ");
-  const keyWords = ["ai", "enter", "imes", "ober", "ufat"];
+  const keyWords = ["ahi", "enter", "imes", "ober", "ufat"];
   let decryptedText = [];
 
   for (let word of inputWords) {
     for (let keyWord of keyWords) {
       while (word.includes(keyWord)) {
-        word = word.replace("ai", "a")
-                   .replace("enter", "e")
-                   .replace("imes", "i")
-                   .replace("ober", "o")
-                   .replace("ufat", "u");
+        word = word
+          .replace("ahi", "a")
+          .replace("enter", "e")
+          .replace("imes", "i")
+          .replace("ober", "o")
+          .replace("ufat", "u");
       }
     }
 

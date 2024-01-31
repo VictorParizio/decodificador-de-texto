@@ -41,26 +41,15 @@ const encryptText = () => {
   }
 
   const inputLetters = inputText.value.split("");
-  let encryptedText = [];
+  const encryptedText = inputLetters.map(letter =>
+    letter === "a" ? "ahi" :
+    letter === "e" ? "enter" :
+    letter === "i" ? "imes" :
+    letter === "o" ? "ober" :
+    letter === "u" ? "ufat" :
+    letter
+  ).join("");
 
-  for (let letter of inputLetters) {
-    letter =
-      letter === "a"
-        ? "ahi"
-        : letter === "e"
-        ? "enter"
-        : letter === "i"
-        ? "imes"
-        : letter === "o"
-        ? "ober"
-        : letter === "u"
-        ? "ufat"
-        : letter;
-
-    encryptedText.push(letter);
-  }
-
-  encryptedText = encryptedText.join("");
   displayResult(encryptedText);
 };
 
@@ -68,14 +57,13 @@ const decryptText = () => {
   if (inputText.value.length === 0) {
     alert("Digite seu texto");
     inputText.focus();
+    return;
   }
 
   const inputWords = inputText.value.split(" ");
   const keyWords = ["ahi", "enter", "imes", "ober", "ufat"];
-  let decryptedText = [];
-
-  for (let word of inputWords) {
-    for (let keyWord of keyWords) {
+  let decryptedText = inputWords.map(word => {
+    keyWords.forEach(keyWord => {
       while (word.includes(keyWord)) {
         word = word
           .replace("ahi", "a")
@@ -84,12 +72,10 @@ const decryptText = () => {
           .replace("ober", "o")
           .replace("ufat", "u");
       }
-    }
+    });
+    return word;
+  }).join(" ");
 
-    decryptedText.push(word);
-  }
-
-  decryptedText = decryptedText.join(" ");
   displayResult(decryptedText);
 };
 

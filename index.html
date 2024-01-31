@@ -16,41 +16,50 @@
 
     <title>Decodificador de Texto</title>
   </head>
-  <body>
-    <main class="container">
-      <header class="header">
-        <a href="#">
-          <img src="./src/images/Vector.svg" alt="Logo da Alura" />
-        </a>
-      </header>
+  <body class="container">
+    <header class="header">
+      <a href="#">
+        <img src="./src/images/Vector.svg" alt="Logo da Alura" />
+      </a>
+    </header>
 
-      <section class="main">
-        <label for="text" class="label-text">Digite seu texto</label>
-        <textarea
-          id="text"
-          class="text"
-          placeholder="Digite seu texto"
-        ></textarea>
+    <main class="main">
+      <label for="text" class="label-textarea">Digite seu texto</label>
+      <textarea
+        id="text"
+        class="textarea"
+        placeholder="Digite seu texto"
+      ></textarea>
 
-        <div>
-          <p>Apenas letras minúsculas e sem acento</p>
-          <div class="button-container">
-            <button id="encrypt-button">Criptografar</button>
-            <button id="decrypt-button">Descriptografar</button>
-          </div>
+      <div>
+        <p>Apenas letras minúsculas e sem acento</p>
+        <div class="button-container">
+          <button id="encrypt-button">Criptografar</button>
+          <button id="decrypt-button">Descriptografar</button>
         </div>
-      </section>
-
-      <section id="sidebar" class="sidebar">
-        <img
-          src="./src/images/avatar.svg"
-          alt="Um rapaz usando uma lupa para investigar um diamante."
-        />
-
-        <h2>Nenhuma mensagem encontrada</h2>
-        <p>Digite um texto que você deseja criptografar ou descriptografar</p>
-      </section>
+      </div>
     </main>
+
+    <section id="sidebar" class="sidebar">
+      <img
+        src="./src/images/avatar.svg"
+        alt="Um rapaz usando uma lupa para investigar um diamante."
+      />
+
+      <h2>Nenhuma mensagem encontrada</h2>
+      <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+    </section>
+
+    <footer>
+      <p>Challenge ONE + AluraLatan - Decodificador de Texto</p>
+
+      Coded by
+      <a
+        href="https://www.linkedin.com/in/victorpariziobackend/"
+        target="_blank"
+        >Victor Parizio</a
+      >
+    </footer>
 
     <script src="./src/index.js"></script>
   </body>

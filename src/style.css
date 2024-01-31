@@ -148,12 +148,14 @@ button:hover {
 }
 
 .sidebar-container h2 {
-  padding: 32px 0 16px;
+  margin-top: 32px;
   font-weight: 700;
 }
 
 .body-container .sidebar-container p {
+  margin-top: 16px;
   color: #495057;
+
 }
 
 .body-container .sidebar-container .copyBtn {

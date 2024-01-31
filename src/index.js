@@ -5,7 +5,7 @@ const resultContainer = document.getElementById("sidebar");
 
 const copyToClipboard = (textToCopy) => {
   const tempTextArea = document.createElement("textarea");
-  tempTextArea.value = textToCopy;
+  tempTextArea.value = textToCopy.replace(/<\/p>/g, "\n").replace(/<p>/g, "");
   document.body.appendChild(tempTextArea);
   tempTextArea.select();
   document.execCommand("copy");
@@ -15,11 +15,16 @@ const copyToClipboard = (textToCopy) => {
 };
 
 const displayResult = (resultText) => {
+  const paragraphs = resultText
+    .split("\n")
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
+
   resultContainer.innerHTML = `
-    <p>${resultText}</p>
+    ${paragraphs}
     <button 
       class="copyBtn"
-      onclick="copyToClipboard('${resultText}')"
+      onclick="copyToClipboard('${paragraphs}')"
     >
       Copiar
     </button>

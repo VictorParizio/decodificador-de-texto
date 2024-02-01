@@ -68,7 +68,7 @@ const encryptText = () => {
   const encryptedText = inputLetters
     .map((letter) =>
       letter === "a"
-        ? "ahi"
+        ? "ahti"
         : letter === "e"
         ? "enter"
         : letter === "i"
@@ -92,13 +92,13 @@ const decryptText = () => {
   }
 
   const inputWords = inputText.value.split(" ");
-  const keyWords = ["ahi", "enter", "imes", "ober", "ufat"];
+  const keyWords = ["ahti", "enter", "imes", "ober", "ufat"];
   let decryptedText = inputWords
     .map((word) => {
       keyWords.forEach((keyWord) => {
         while (word.includes(keyWord)) {
           word = word
-            .replace("ahi", "a")
+            .replace("ahti", "a")
             .replace("enter", "e")
             .replace("imes", "i")
             .replace("ober", "o")

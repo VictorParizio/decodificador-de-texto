@@ -26,7 +26,7 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 #### 2. **Criptografar**
 
 - Ao clicar no botão "Criptografar", a aplicação transforma o texto de entrada usando substituição de vogais por palavras específicas ("a" por "ahti", "e" por "enter", "i" por "imes", "o" por "ober", "u" por "ufat").
-- Nos quesitos originais do projeto "a" seria subistituido por "ai", o que gera eros ao descirptografar, pois há muitos palavras em português e em outros idiomas que contém "ai", por isso optei por usar a combinação "ahti".
+- Nas orientações originais do projeto "a" seria subistituido por "ai", o que gera erros na descriptografia, pois há muitos palavras em português e em outros idiomas que contém "ai", por isso optei por usar a combinação "ahti".
 
 #### 3. **Descriptografar**
 
@@ -38,11 +38,11 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 
 #### 5. **Cópia para Área de Transferência**
 
-- Após a exibição do resultado, um botão "Copiar" é apresentado, permitindo ao usuário copiar o texto resultante para a área de transferência.
+- Após o resultado, um botão "Copiar" é apresentado, permitindo ao usuário copiar o texto resultante para a área de transferência.
 
 #### 6. **Modal de Aviso**
 
-- Um modal é exibido para alertar o usuário em caso de entrada vazia ou caracteres especiais não permitidos.
+- Um modal é exibido para alertar o usuário em caso de entrada vazia.
 
 #### 7. **Estilo Responsivo**
 
@@ -58,14 +58,12 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 
 ### Observações
 
-- Certifique-se de evitar a inclusão de caracteres especiais no texto de entrada, conforme indicado nas instruções.
+- Certifique-se de não utilizar caracteres especiais no texto, pois podem quebrar a aplicação 🤣😒😅. Ainda estou trabalhando nisso.
 
 Este decodificador de texto é uma aplicação simples, desenvolvida para fins de aprendizado e entretenimento. Sinta-se à vontade para experimentar e explorar suas funcionalidades!
+
+Aceito sugestões e melhorias.
 
 ## Autor
 
 - [Victor Parizio](https://www.linkedin.com/in/victorpariziobackend/)
-
-## Licença
-
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.

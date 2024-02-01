@@ -2,16 +2,32 @@ const inputText = document.getElementById("input-text");
 const encryptBtn = document.getElementById("encrypt-button");
 const decryptBtn = document.getElementById("decrypt-button");
 const resultContainer = document.getElementById("sidebar");
+const modal = document.getElementById("dialog");
+
+const showModal = (message) => {
+  const isVisible = modal.style.display === "block";
+  modal.style.display = isVisible ? "none" : "block";
+
+  if (!isVisible) {
+    modal.innerHTML = `
+      <p>${message}</p>
+    `;
+
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 3000);
+  }
+};
 
 const copyToClipboard = (textToCopy) => {
   const tempTextArea = document.createElement("textarea");
-  tempTextArea.value = textToCopy.replace(/<\/p>/g, "\n").replace(/<p>/g, "");
+  tempTextArea.value = textToCopy.replace(/<p>/g, "").replace(/<\/p>/g, "\n");
   document.body.appendChild(tempTextArea);
   tempTextArea.select();
   document.execCommand("copy");
   document.body.removeChild(tempTextArea);
   inputText.focus();
-  alert("Copiado com sucesso!");
+  showModal("Copiado com sucesso!");
 };
 
 const displayResult = (resultText) => {
@@ -35,7 +51,7 @@ const displayResult = (resultText) => {
 
 const encryptText = () => {
   if (inputText.value.length === 0) {
-    alert("Digite seu texto");
+    showModal("Digite seu texto");
     inputText.focus();
     return;
   }
@@ -55,7 +71,7 @@ const encryptText = () => {
 
 const decryptText = () => {
   if (inputText.value.length === 0) {
-    alert("Digite seu texto");
+    showModal("Digite seu texto");
     inputText.focus();
     return;
   }
@@ -63,18 +79,18 @@ const decryptText = () => {
   const inputWords = inputText.value.split(" ");
   const keyWords = ["ahi", "enter", "imes", "ober", "ufat"];
   let decryptedText = inputWords.map(word => {
-    keyWords.forEach(keyWord => {
-      while (word.includes(keyWord)) {
-        word = word
-          .replace("ahi", "a")
-          .replace("enter", "e")
-          .replace("imes", "i")
-          .replace("ober", "o")
-          .replace("ufat", "u");
-      }
-    });
-    return word;
-  }).join(" ");
+      keyWords.forEach(keyWord => {
+        while (word.includes(keyWord)) {
+          word = word
+            .replace("ahi", "a")
+            .replace("enter", "e")
+            .replace("imes", "i")
+            .replace("ober", "o")
+            .replace("ufat", "u");
+        }
+      });
+      return word;
+    }).join(" ");
 
   displayResult(decryptedText);
 };

@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(10, 56, 113);
-  --second: #0a3871;
+  /* --primary: #0a3871; */
   --ternaria: #d8dfe8;
   --background: rgb(243, 245, 252);
 }
@@ -34,9 +34,9 @@ button {
   font-size: 1.6rem;
   cursor: pointer;
 
-  border: 1px solid var(--second);
+  border: 1px solid var(--primary);
   background: var(--ternaria);
-  color: var(--second);
+  color: var(--primary);
 
   transition: box-shadow 0.3s ease;
 }

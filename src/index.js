@@ -36,15 +36,23 @@ const displayResult = (resultText) => {
     .map((paragraph) => `<p>${paragraph}</p>`)
     .join("");
 
-  resultContainer.innerHTML = `
-    ${paragraphs}
-    <button 
-      class="copyBtn"
-      onclick="copyToClipboard('${paragraphs}')"
-    >
-      Copiar
-    </button>
-  `;
+  let animatedText = "";
+
+  paragraphs.split("").forEach((letter, i) => {
+    setTimeout(() => {
+      animatedText += letter;
+      resultContainer.innerHTML = animatedText;
+
+      resultContainer.innerHTML += `
+          <button 
+            class="copyBtn"
+            onclick="copyToClipboard('${paragraphs}')"
+          >
+            Copiar
+          </button>
+        `;
+    }, 25 * i);
+  });
 
   resultContainer.classList.add("space-between");
 };
@@ -57,14 +65,21 @@ const encryptText = () => {
   }
 
   const inputLetters = inputText.value.split("");
-  const encryptedText = inputLetters.map(letter =>
-    letter === "a" ? "ahi" :
-    letter === "e" ? "enter" :
-    letter === "i" ? "imes" :
-    letter === "o" ? "ober" :
-    letter === "u" ? "ufat" :
-    letter
-  ).join("");
+  const encryptedText = inputLetters
+    .map((letter) =>
+      letter === "a"
+        ? "ahi"
+        : letter === "e"
+        ? "enter"
+        : letter === "i"
+        ? "imes"
+        : letter === "o"
+        ? "ober"
+        : letter === "u"
+        ? "ufat"
+        : letter
+    )
+    .join("");
 
   displayResult(encryptedText);
 };
@@ -78,8 +93,9 @@ const decryptText = () => {
 
   const inputWords = inputText.value.split(" ");
   const keyWords = ["ahi", "enter", "imes", "ober", "ufat"];
-  let decryptedText = inputWords.map(word => {
-      keyWords.forEach(keyWord => {
+  let decryptedText = inputWords
+    .map((word) => {
+      keyWords.forEach((keyWord) => {
         while (word.includes(keyWord)) {
           word = word
             .replace("ahi", "a")
@@ -90,7 +106,8 @@ const decryptText = () => {
         }
       });
       return word;
-    }).join(" ");
+    })
+    .join(" ");
 
   displayResult(decryptedText);
 };

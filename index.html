@@ -34,7 +34,17 @@
       ></textarea>
 
       <div>
-        <p>Não são permitidos caracteres especiais.</p>
+        <div class="info">
+          <p>Não são permitidos caracteres especiais.</p>
+          <label for="animatedText">Ativar/Desativar animação</label>
+          <input
+            type="checkbox"
+            id="animatedText"
+            title="Texto Animado"
+            value=""
+          />
+        </div>
+
         <div class="button-container">
           <button id="encrypt-button">Criptografar</button>
           <button id="decrypt-button">Descriptografar</button>
@@ -42,7 +52,7 @@
       </div>
     </main>
 
-    <section id="sidebar" class="sidebar-container">
+    <aside id="sidebar" class="sidebar-container">
       <img
         src="./src/images/avatar.svg"
         alt="Um rapaz usando uma lupa para investigar um diamante."
@@ -50,7 +60,7 @@
 
       <h2>Nenhuma mensagem encontrada</h2>
       <p>Digite um texto que você deseja criptografar ou descriptografar</p>
-    </section>
+    </aside>
 
     <footer>
       <p>Challenge ONE + AluraLatan - Decodificador de Texto</p>

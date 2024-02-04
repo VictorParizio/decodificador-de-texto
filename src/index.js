@@ -3,6 +3,7 @@ const encryptBtn = document.getElementById("encrypt-button");
 const decryptBtn = document.getElementById("decrypt-button");
 const resultContainer = document.getElementById("sidebar");
 const modal = document.getElementById("dialog");
+let animateCheckbox = document.getElementById("animatedText");
 
 const showModal = (message) => {
   const isVisible = modal.style.display === "block";
@@ -30,30 +31,39 @@ const copyToClipboard = (textToCopy) => {
   showModal("Copiado com sucesso!");
 };
 
-const displayResult = (resultText) => {
+const animateText = async (text) => {
+  let animatedText = "";
+  const characters = text.split("");
+
+  for (let i = 0; i < characters.length; i++) {
+    animatedText += characters[i];
+    resultContainer.innerHTML = animatedText;
+    await new Promise((resolve) => setTimeout(resolve, 40));
+  }
+};
+
+const displayResult = async (resultText) => {
   const paragraphs = resultText
     .split("\n")
     .map((paragraph) => `<p>${paragraph}</p>`)
     .join("");
 
-  let animatedText = "";
+  const copyButton = `
+    <button 
+      class="copyBtn"
+      onclick="copyToClipboard('${paragraphs}')"
+    >
+      Copiar
+    </button>
+  `;
 
-  paragraphs.split("").forEach((letter, i) => {
-    setTimeout(() => {
-      animatedText += letter;
-      resultContainer.innerHTML = animatedText;
+  if (animateCheckbox.checked) {
+    await animateText(paragraphs);
+  } else {
+    resultContainer.innerHTML = `${paragraphs}`;
+  }
 
-      resultContainer.innerHTML += `
-          <button 
-            class="copyBtn"
-            onclick="copyToClipboard('${paragraphs}')"
-          >
-            Copiar
-          </button>
-        `;
-    }, 25 * i);
-  });
-
+  resultContainer.innerHTML += copyButton;
   resultContainer.classList.add("space-between");
 };
 

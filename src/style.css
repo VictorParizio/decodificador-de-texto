@@ -97,7 +97,7 @@ button:hover {
   width: 100%;
 }
 
-.body-container .main-container div p {
+.body-container .main-container .info {
   font-size: 1.2rem;
   margin: 16px 0;
 }
@@ -155,7 +155,6 @@ button:hover {
 .body-container .sidebar-container p {
   margin-top: 16px;
   color: #495057;
-
 }
 
 .body-container .sidebar-container .copyBtn {

@@ -105,11 +105,11 @@ const decryptText = () => {
   let decryptedText = inputWords
     .map((word) => {
       word = word
-        .replace("enter", "e")
-        .replace("imes", "i")
-        .replace("ai", "a")
-        .replace("ober", "o")
-        .replace("ufat", "u");
+        .replaceAll("enter", "e")
+        .replaceAll("imes", "i")
+        .replaceAll("ai", "a")
+        .replaceAll("ober", "o")
+        .replaceAll("ufat", "u");
       return word;
     })
     .join(" ");

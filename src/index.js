@@ -22,7 +22,11 @@ const showModal = (message) => {
 
 const copyToClipboard = (textToCopy) => {
   const tempTextArea = document.createElement("textarea");
-  tempTextArea.value = textToCopy.replace(/<p>/g, "").replace(/<\/p>/g, "\n");
+  tempTextArea.value = textToCopy
+  .replace(/<div>|<\/div>|<p>/g, "")
+  .replace(/<\/p>/g, "\n")
+  .trim();
+
   document.body.appendChild(tempTextArea);
   tempTextArea.select();
   document.execCommand("copy");
@@ -43,10 +47,13 @@ const animateText = async (text) => {
 };
 
 const displayResult = async (resultText) => {
-  const paragraphs = resultText
-    .split("\n")
-    .map((paragraph) => `<p>${paragraph}</p>`)
-    .join("");
+  const paragraphs =
+    `<div>` +
+    resultText
+      .split("\n")
+      .map((paragraph) => `<p>${paragraph}</p>`)
+      .join("") +
+    `</div>`;
 
   const copyButton = `
     <button 

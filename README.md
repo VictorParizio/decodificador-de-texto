@@ -2,9 +2,11 @@
 
 Um simples decodificador de texto que permite criptografar e descriptografar mensagens de forma divertida! Este projeto foi desenvolvido como parte do desafio ONE + AluraLatan.
 
+Para melhorar a experiência do usuário, você pode transformar o texto "Acesse a página Decodificador de Texto em victorparizio.github.io/decodificador-de-texto/" em um link clicável. Aqui está como você pode fazer isso:
+
 ## Como Usar
 
-1. Acesse a página [Decodificador de Texto](victorparizio.github.io/decodificador-de-texto/)
+1. **[Clique aqui para acessar a página Decodificador de Texto](https://victorparizio.github.io/decodificador-de-texto/)**.
 2. Ou abra o arquivo `index.html` em um navegador da web.
 3. Digite o texto desejado na caixa de texto principal.
 4. Escolha entre as opções de "Criptografar" e "Descriptografar".
@@ -15,6 +17,7 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 - Certifique-se de não utilizar caracteres especiais no texto, pois podem quebrar a aplicação 🤣😒😅. Ainda estou trabalhando nisso.
 
 ## Tecnologias
+
 - O projeto foi desenvolvido utilizando HTML, CSS e JavaScript.
 
 ## Funcionalidades do Decodificador de Texto
@@ -25,8 +28,7 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 
 #### 2. **Criptografar**
 
-- Ao clicar no botão "Criptografar", a aplicação transforma o texto de entrada usando substituição de vogais por palavras específicas ("a" por "ahti", "e" por "enter", "i" por "imes", "o" por "ober", "u" por "ufat").
-- Nas orientações originais do projeto "a" seria subistituido por "ai", o que gera erros na descriptografia, pois há muitos palavras em português e em outros idiomas que contém "ai", por isso optei por usar a combinação "ahti".
+- Ao clicar no botão "Criptografar", a aplicação transforma o texto de entrada usando substituição de vogais por palavras específicas ("e" por "enter", "i" por "imes", "a" por "ai", "o" por "ober", "u" por "ufat").
 
 #### 3. **Descriptografar**
 
@@ -36,23 +38,27 @@ Um simples decodificador de texto que permite criptografar e descriptografar men
 
 - O resultado da criptografia ou descriptografia é exibido na barra lateral de forma animada, letra por letra.
 
-#### 5. **Cópia para Área de Transferência**
+#### 5. **Checkbox para Ativar Exibição de Resultado Animada**
+
+- A apresentação do resultado da criptografia ou descriptografia exibido na barra lateral já vem por padrão desativado, pois pode ser demorada com textos longos, mas pode ser ativado por meio de um checkbox.
+
+#### 6. **Cópia para Área de Transferência**
 
 - Após o resultado, um botão "Copiar" é apresentado, permitindo ao usuário copiar o texto resultante para a área de transferência.
 
-#### 6. **Modal de Aviso**
+#### 7. **Modal de Aviso**
 
 - Um modal é exibido para alertar o usuário em caso de entrada vazia.
 
-#### 7. **Estilo Responsivo**
+#### 8. **Estilo Responsivo**
 
 - O layout foi desenvolvido para ser responsivo, adaptando-se a diferentes tamanhos de tela.
 
-#### 8. **Informações do Autor**
+#### 9. **Informações do Autor**
 
 - O rodapé inclui informações sobre o autor do projeto, com um link para o perfil no LinkedIn.
 
-#### 9. **Animação do Modal**
+#### 10. **Animação do Modal**
 
 - O modal de aviso possui uma animação de entrada e saída, proporcionando uma experiência visual mais agradável.
 
